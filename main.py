@@ -1,25 +1,25 @@
-from fastapi import FastAPI
+# from fastapi import FastAPI
 import gradio as gr
-from fastapi.responses import RedirectResponse
+# from fastapi.responses import RedirectResponse
 
-from gradio_ui import demo
-import t2speech
-import t2text
-import chatbot
-import dashboard
-import t2speechmuit
-import userspace
-from ui import dash
-import audio_interface
-app = FastAPI()
+# from gradio_ui import demo
+# import t2speech
+# import t2text
+# import chatbot
+# import dashboard
+# import t2speechmuit
+# import userspace
+# from ui import dash
+# import audio_interface
+# app = FastAPI()
 
-@app.get('/')
-async def root():
-    return 'Gradio app is running at /gradio', 200
-@app.get("/redirect")
-async def redirect_to_site():
-    # إعادة التوجيه إلى موقع معين
-    return RedirectResponse(url="http://lahja.runasp.net/services")
+# @app.get('/')
+# async def root():
+#     return 'Gradio app is running at /gradio', 200
+# @app.get("/redirect")
+# async def redirect_to_site():
+#     # إعادة التوجيه إلى موقع معين
+#     return RedirectResponse(url="http://lahja.runasp.net/services")
 
 
 
@@ -42,6 +42,7 @@ async def redirect_to_site():
 
 from apps.ui_apps import APPS
 for uiapp,path in APPS:
-    app = gr.mount_gradio_app(app, uiapp, path=path)
+    uiapp.launch(show_error=True,share=True)
+    # app = gr.mount_gradio_app(app, uiapp, path="/"+path)
 
     

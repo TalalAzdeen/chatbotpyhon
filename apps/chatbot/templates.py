@@ -1,7 +1,7 @@
 
-from seeds import *
-from data import *
-from builders import *
+from .seeds import *
+
+from .builders import *
 import gradio as gr
 from gradio_client import Client
 import pandas as pd
@@ -9,6 +9,7 @@ from random import randint
 import plotly.express as px
 import time
 from typing import Optional
+from .components import *
 
 class TemplateSpeechStudioBuilder:
     def __init__(self, url, token, isDev=True, data=None) -> None:
