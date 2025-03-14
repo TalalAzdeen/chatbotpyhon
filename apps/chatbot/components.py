@@ -167,7 +167,7 @@ def createchat(builder, lg="en"):
                     )
 
                     chat_msg = chat_input.submit(
-                        builder.add_message, [chatbot, chat_input], [chatbot, chat_input]
+                        builder.add_message, [chatbot, chat_input], [chatbot, chat_input],api_name="add_message"
                     )
                     bot_msg = chat_msg.then(builder.bot, chatbot, chatbot, api_name="bot_response")
                     bot_msg.then(lambda: gr.MultimodalTextbox(interactive=True), None, [chat_input])
